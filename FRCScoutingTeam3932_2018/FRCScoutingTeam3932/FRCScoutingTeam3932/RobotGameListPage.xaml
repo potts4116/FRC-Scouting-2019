@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FRCScoutingTeam3932.RobotGameListPage">
+    <ContentPage.ToolbarItems>
+        <!-- <ToolbarItem Text="New Game" Clicked="OnNewGameClicked" /> -->
+        <ToolbarItem Text="Export" Clicked="OnExportClicked" />
+    </ContentPage.ToolbarItems>
+    <RelativeLayout>
+        <Image Source="FRCScouting2019_3932_FadedScreenV2_600x1024.png" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}" RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"/>
+        <StackLayout x:Name="SQLexport"  RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}" RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}">
+            <Editor x:Name="SQLeditor" TextColor="Blue" />
+            <ListView x:Name="listView" Margin="20" ItemSelected="OnGameSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Margin="20,0,0,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding Team}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" FontAttributes="Bold" FontSize="Medium" />
+                                <Label Text="{Binding Game}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" FontAttributes="Bold" FontSize="Medium" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </RelativeLayout>
+</ContentPage>

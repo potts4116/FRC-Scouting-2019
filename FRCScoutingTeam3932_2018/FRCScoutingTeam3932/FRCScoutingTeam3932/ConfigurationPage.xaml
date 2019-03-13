@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FRCScoutingTeam3932.ConfigurationPage">
+    <!--
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+    -->
+
+    <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Connect to FirstInspires data" Clicked="OnTestAPIClicked">
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <RelativeLayout>
+        <Image Source="FRCScouting2019_3932_FadedScreenV2_600x1024.png" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}" RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"/>
+        <!-- Opacity="0.2" -->
+        <Grid Padding="5" Grid.RowSpacing="1" Grid.ColumnSpacing="1"  RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}" RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="0" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            
+            <Label  Grid.Row="0" Grid.Column="1" x:Name="lblYear" Text="Year:" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" />
+            <Picker Grid.Row="0" Grid.Column="2" x:Name="pikYear" Title="Year" SelectedIndexChanged="pikYearSelected" TextColor="Blue">
+                <Picker.Items>
+                    <x:String>2017</x:String>
+                    <x:String>2018</x:String>
+                    <x:String>2019</x:String>
+                </Picker.Items>
+                <Picker.SelectedIndex>2</Picker.SelectedIndex>
+            </Picker>
+
+            <Label  Grid.Row="1" Grid.Column="1" x:Name="lblEvent" Text="Event:" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" />
+            <Picker Grid.Row="1" Grid.Column="2" x:Name="pikEvent" Title="Event" SelectedIndexChanged="pikEventSelected" TextColor="Blue" />
+
+            <Label  Grid.Row="2" Grid.Column="1" x:Name="lblMatch" Text="Match(es):" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" />
+            <Picker Grid.Row="2" Grid.Column="2" x:Name="pikMatch" Title="Match" SelectedIndexChanged="pikMatchSelected" TextColor="Blue" />
+
+            <Label  Grid.Row="3" Grid.Column="1" x:Name="lblAlliance" Text="Alliance:" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" />
+            <Picker Grid.Row="3" Grid.Column="2" x:Name="pikAlliance" Title="Alliance" TextColor="Blue">
+                <Picker.Items>
+                    <x:String>Both</x:String>
+                    <x:String>Blue</x:String>
+                    <x:String>Red</x:String>
+                </Picker.Items>
+                <Picker.SelectedIndex>0</Picker.SelectedIndex>
+            </Picker>
+
+            <Label  Grid.Row="4" Grid.Column="1" x:Name="lblPosition" Text="Position:" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" />
+            <Picker Grid.Row="4" Grid.Column="2" x:Name="pikPosition" Title="Position" TextColor="Blue">
+                <Picker.Items>
+                    <x:String>All</x:String>
+                    <x:String>1</x:String>
+                    <x:String>2</x:String>
+                    <x:String>3</x:String>
+                </Picker.Items>
+                <Picker.SelectedIndex>0</Picker.SelectedIndex>
+            </Picker>
+
+            <!-- 20180304:Cesar - Reversed order of rows 4 and 5 because button was not appearing in emulator -->
+            <StackLayout Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Margin="20,0,0,0" Orientation="Horizontal" HorizontalOptions="Center"><!-- FillAndExpand -->
+                <Button x:Name="btnUpdate" Text="Update" Clicked="OnUpdateClicked" />
+                <!-- <Button x:Name="btnCancel" Text="Cancel" Clicked="OnCancelClicked" /> -->
+            </StackLayout>
+
+            <Editor Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" x:Name="edtConfirm" TextColor="Blue" HeightRequest="500" />
+
+        </Grid>
+    </RelativeLayout>
+</ContentPage>

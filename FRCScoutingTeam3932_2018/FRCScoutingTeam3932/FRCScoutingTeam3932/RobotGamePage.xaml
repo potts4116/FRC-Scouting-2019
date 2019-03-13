@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FRCScoutingTeam3932.RobotGamePage">
+    <RelativeLayout>
+        <Image Source="FRCScouting2019_3932_FadedScreenV2_600x1024.png" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}" RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"/>
+
+        <ScrollView Orientation="Vertical" RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}">
+            <Grid Padding="5" Grid.RowSpacing="1" Grid.ColumnSpacing="1" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}">
+                <!-- RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}" -->
+                <Grid.RowDefinitions>
+                    
+                    <RowDefinition Height="45" />
+                    <RowDefinition Height="38" />
+                    <RowDefinition Height="0" />
+                    <RowDefinition Height="0" />
+                    <RowDefinition Height="38" />
+
+                    <RowDefinition Height="45" />
+                    <!-- Autonomous Mode -->
+                    <RowDefinition Height="38" />
+                    <RowDefinition Height="38" />
+                    <RowDefinition Height="38" />
+
+                    <RowDefinition Height="45" />
+                    <!-- TeleOp Mode -->
+                    <RowDefinition Height="38" />
+                    <RowDefinition Height="38" />
+                    <RowDefinition Height="38" />
+                    <RowDefinition Height="38" />
+                    <RowDefinition Height="38" />
+                    <RowDefinition Height="38" />
+                    <RowDefinition Height="38" />
+
+                    <RowDefinition Height="45" />
+                    <!-- Defensive Capabilities -->
+                    <RowDefinition Height="38" />
+
+                    <RowDefinition Height="38" />
+                    <!-- Buttons -->
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="350" /><!-- Auto -->
+                    <ColumnDefinition Width="75" /><!-- Auto -->
+                    <ColumnDefinition Width="175" /><!-- Auto -->
+                </Grid.ColumnDefinitions>
+
+                <BoxView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" x:Name="bxvAlliancePosition" BackgroundColor="{Binding Alliance}" Opacity="1.0" />
+                <Label   Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" x:Name="lblAlliancePosition" Text="" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Large" TextColor="White" />
+                
+                <Label   Grid.Row="1" Grid.Column="0" x:Name="lblTeam" Text="Team:" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" />
+                <Entry   Grid.Row="1" Grid.Column="1" x:Name="Team" Text="{Binding Team}" Placeholder="Enter team number" TextColor="Blue" FontAttributes="Bold" FontSize="Medium" />
+                
+                <Label   Grid.Row="2" Grid.Column="0" x:Name="lblAlly1" Text="Ally 1:" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" />
+                <Entry   Grid.Row="2" Grid.Column="1" x:Name="Ally1" Text="{Binding Ally1}" Placeholder="Enter ally number" TextColor="Blue" FontAttributes="Bold" FontSize="Medium" />
+                
+                <Label   Grid.Row="3" Grid.Column="0" x:Name="lblAlly2" Text="Ally 2:" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" />
+                <Entry   Grid.Row="3" Grid.Column="1" x:Name="Ally2" Text="{Binding Ally2}" Placeholder="Enter ally number" TextColor="Blue" FontAttributes="Bold" FontSize="Medium" />
+                
+                <Label   Grid.Row="4" Grid.Column="0" x:Name="lblGame" Text="Match:" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" />
+                <Entry   Grid.Row="4" Grid.Column="1" x:Name="Game" Text="{Binding Game}" Placeholder="Enter match number" TextColor="Blue" FontAttributes="Bold" FontSize="Medium" />
+
+                <BoxView Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="Yellow" Opacity="0.2" />
+                <Label   Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" x:Name="lblModeAutonomous" Text="Autonomous Mode:" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Large" />
+
+                <BoxView Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="Yellow" Opacity="0.2" />
+                <Label   Grid.Row="6" Grid.Column="0" x:Name="lblAutoDescendPlatform" Text="Descend from Platform Level:" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" VisualElement.Style="" />
+                <Entry   Grid.Row="6" Grid.Column="1" x:Name="AutoDescendPlatform" Text="{Binding AutoDescendPlatform}" TextColor="Blue" FontAttributes="Bold" FontSize="Medium" TextChanged="OnTxtAutoDescendPlatformChanged" />
+                <Stepper Grid.Row="6" Grid.Column="2" x:Name="stpAutoDescendPlatform" Stepper.Value="0" Stepper.Minimum="0" Stepper.Maximum="2" Stepper.Increment="1" VisualElement.Opacity="0.6" Button.BorderColor="Color.Black" Button.BorderWidth="10" VisualElement.WidthRequest="50" ValueChanged="OnStpAutoDescendPlatformChanged" />
+
+                <BoxView Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="Yellow" Opacity="0.2" />
+                <Label   Grid.Row="7" Grid.Column="0" x:Name="lblAutoPlaceHatch" Text="Placed Hatch:" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" VisualElement.Style="" />
+                <Entry   Grid.Row="7" Grid.Column="1" x:Name="AutoPlaceHatch" Text="{Binding AutoPlaceHatch}" TextColor="Blue" FontAttributes="Bold" FontSize="Medium" TextChanged="OnTxtAutoPlaceHatchChanged" />
+                <Stepper Grid.Row="7" Grid.Column="2" x:Name="stpAutoPlaceHatch" Stepper.Value="0" Stepper.Minimum="0" Stepper.Maximum="999" Stepper.Increment="1" VisualElement.Opacity="0.6" Button.BorderColor="Color.Black" Button.BorderWidth="10" VisualElement.WidthRequest="50" ValueChanged="OnStpAutoPlaceHatchChanged" />
+
+                <BoxView Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="Yellow" Opacity="0.2" />
+                <Label   Grid.Row="8" Grid.Column="0" x:Name="lblAutoPlaceCargoh" Text="Placed Cargo:" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" VisualElement.Style="" />
+                <Entry   Grid.Row="8" Grid.Column="1" x:Name="AutoPlaceCargo" Text="{Binding AutoPlaceCargo}" TextColor="Blue" FontAttributes="Bold" FontSize="Medium" TextChanged="OnTxtAutoPlaceCargoChanged" />
+                <Stepper Grid.Row="8" Grid.Column="2" x:Name="stpAutoPlaceCargo" Stepper.Value="0" Stepper.Minimum="0" Stepper.Maximum="999" Stepper.Increment="1" VisualElement.Opacity="0.6" Button.BorderColor="Color.Black" Button.BorderWidth="10" VisualElement.WidthRequest="50" ValueChanged="OnStpAutoPlaceCargoChanged" />
+
+                <BoxView Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="Green" Opacity="0.2" />
+                <Label   Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="3" x:Name="lblModeTeleOp" Text="TeleOp Mode:" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Large" />
+
+                <BoxView Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="Green" Opacity="0.2" />
+                <Label   Grid.Row="10" Grid.Column="0" x:Name="lblTelePlaceHatchLow" Text="Placed Hatch in Low Position:" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" />
+                <Entry   Grid.Row="10" Grid.Column="1" x:Name="TelePlaceHatchLow" Text="{Binding TelePlaceHatchLow}" TextColor="Blue" FontAttributes="Bold" FontSize="Medium" TextChanged="OnTxtTelePlaceHatchLowChanged" />
+                <Stepper Grid.Row="10" Grid.Column="2" x:Name="stpTelePlaceHatchLow" Stepper.Value="0" Stepper.Minimum="0" Stepper.Maximum="999" Stepper.Increment="1" VisualElement.Opacity="0.6" Button.BorderColor="Color.Black" Button.BorderWidth="10" VisualElement.WidthRequest="50" ValueChanged="OnStpTelePlaceHatchLowChanged" />
+
+                <BoxView Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="Green" Opacity="0.2" />
+                <Label   Grid.Row="11" Grid.Column="0" x:Name="lblTelePlaceHatchMed" Text="Placed Hatch in Med Position:" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" />
+                <Entry   Grid.Row="11" Grid.Column="1" x:Name="TelePlaceHatchMed" Text="{Binding TelePlaceHatchMed}" TextColor="Blue" FontAttributes="Bold" FontSize="Medium" TextChanged="OnTxtTelePlaceHatchMedChanged" />
+                <Stepper Grid.Row="11" Grid.Column="2" x:Name="stpTelePlaceHatchMed" Stepper.Value="0" Stepper.Minimum="0" Stepper.Maximum="999" Stepper.Increment="1" VisualElement.Opacity="0.6" Button.BorderColor="Color.Black" Button.BorderWidth="10" VisualElement.WidthRequest="50" ValueChanged="OnStpTelePlaceHatchMedChanged" />
+
+                <BoxView Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="Green" Opacity="0.2" />
+                <Label   Grid.Row="12" Grid.Column="0" x:Name="lblTelePlaceHatchHigh" Text="Placed Hatch in High Position:" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" />
+                <Entry   Grid.Row="12" Grid.Column="1" x:Name="TelePlaceHatchHigh" Text="{Binding TelePlaceHatchHigh}" TextColor="Blue" FontAttributes="Bold" FontSize="Medium" TextChanged="OnTxtTelePlaceHatchHighChanged" />
+                <Stepper Grid.Row="12" Grid.Column="2" x:Name="stpTelePlaceHatchHigh" Stepper.Value="0" Stepper.Minimum="0" Stepper.Maximum="999" Stepper.Increment="1" VisualElement.Opacity="0.6" Button.BorderColor="Color.Black" Button.BorderWidth="10" VisualElement.WidthRequest="50" ValueChanged="OnStpTelePlaceHatchHighChanged" />
+
+                <BoxView Grid.Row="13" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="Green" Opacity="0.2" />
+                <Label   Grid.Row="13" Grid.Column="0" x:Name="lblTelePlaceCargoLow" Text="Placed Cargo in Low Position:" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" />
+                <Entry   Grid.Row="13" Grid.Column="1" x:Name="TelePlaceCargoLow" Text="{Binding TelePlaceCargoLow}" TextColor="Blue" FontAttributes="Bold" FontSize="Medium" TextChanged="OnTxtTelePlaceCargoLowChanged" />
+                <Stepper Grid.Row="13" Grid.Column="2" x:Name="stpTelePlaceCargoLow" Stepper.Value="0" Stepper.Minimum="0" Stepper.Maximum="999" Stepper.Increment="1" VisualElement.Opacity="0.6" Button.BorderColor="Color.Black" Button.BorderWidth="10" VisualElement.WidthRequest="50" ValueChanged="OnStpTelePlaceCargoLowChanged" />
+
+                <BoxView Grid.Row="14" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="Green" Opacity="0.2" />
+                <Label   Grid.Row="14" Grid.Column="0" x:Name="lblTelePlaceCargoMed" Text="Placed Cargo in Med Position:" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" />
+                <Entry   Grid.Row="14" Grid.Column="1" x:Name="TelePlaceCargoMed" Text="{Binding TelePlaceCargoMed}" TextColor="Blue" FontAttributes="Bold" FontSize="Medium" TextChanged="OnTxtTelePlaceCargoMedChanged" />
+                <Stepper Grid.Row="14" Grid.Column="2" x:Name="stpTelePlaceCargoMed" Stepper.Value="0" Stepper.Minimum="0" Stepper.Maximum="999" Stepper.Increment="1" VisualElement.Opacity="0.6" Button.BorderColor="Color.Black" Button.BorderWidth="10" VisualElement.WidthRequest="50" ValueChanged="OnStpTelePlaceCargoMedChanged" />
+
+                <BoxView Grid.Row="15" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="Green" Opacity="0.2" />
+                <Label   Grid.Row="15" Grid.Column="0" x:Name="lblTelePlaceCargoHigh" Text="Placed Cargo in High Position:" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" />
+                <Entry   Grid.Row="15" Grid.Column="1" x:Name="TelePlaceCargoHigh" Text="{Binding TelePlaceCargoHigh}" TextColor="Blue" FontAttributes="Bold" FontSize="Medium" TextChanged="OnTxtTelePlaceCargoHighChanged" />
+                <Stepper Grid.Row="15" Grid.Column="2" x:Name="stpTelePlaceCargoHigh" Stepper.Value="0" Stepper.Minimum="0" Stepper.Maximum="999" Stepper.Increment="1" VisualElement.Opacity="0.6" Button.BorderColor="Color.Black" Button.BorderWidth="10" VisualElement.WidthRequest="50" ValueChanged="OnStpTelePlaceCargoHighChanged" />
+
+                <BoxView Grid.Row="16" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="Green" Opacity="0.2" />
+                <Label   Grid.Row="16" Grid.Column="0" x:Name="lblTeleHabHeight" Text="Climbed to Hab Level:" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" />
+                <Entry   Grid.Row="16" Grid.Column="1" x:Name="TeleHabHeight" Text="{Binding TeleHabHeight}" TextColor="Blue" FontAttributes="Bold" FontSize="Medium" TextChanged="OnTxtTeleHabHeightChanged" />
+                <Stepper Grid.Row="16" Grid.Column="2" x:Name="stpTeleHabHeight" Stepper.Value="0" Stepper.Minimum="0" Stepper.Maximum="3" Stepper.Increment="1" VisualElement.Opacity="0.6" Button.BorderColor="Color.Black" Button.BorderWidth="10" VisualElement.WidthRequest="50" ValueChanged="OnStpTeleHabHeightChanged" />
+
+                <BoxView Grid.Row="17" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="LightBlue" Opacity="0.4" />
+                <Label   Grid.Row="17" Grid.Column="0" Grid.ColumnSpan="3" x:Name="lblDefense" Text="Defensive Capabilities:" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Large" />
+
+                <BoxView Grid.Row="18" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="LightBlue" Opacity="0.4" />
+                <Label   Grid.Row="18" Grid.Column="0" x:Name="lblTeleDefensePlayed" Text="Defensive Play:" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" />
+                <Entry   Grid.Row="18" Grid.Column="1" x:Name="TeleDefensePlayed" Text="{Binding TeleDefensePlayed}" TextColor="Blue" FontAttributes="Bold" FontSize="Medium" TextChanged="OnTxtTeleDefensePlayedChanged" />
+                <Stepper Grid.Row="18" Grid.Column="2" x:Name="stpTeleDefensePlayed" Stepper.Value="0" Stepper.Minimum="0" Stepper.Maximum="999" Stepper.Increment="1" VisualElement.Opacity="0.6" Button.BorderColor="Color.Black" Button.BorderWidth="10" VisualElement.WidthRequest="50" ValueChanged="OnStpTeleDefensePlayedChanged" />
+
+                <Button  Grid.Row="19" Grid.Column="0" Grid.ColumnSpan="3" Text="Save" Clicked="OnSaveClicked" BackgroundColor="Red" WidthRequest="100" />
+                
+            </Grid>
+        </ScrollView>
+    </RelativeLayout>
+</ContentPage>

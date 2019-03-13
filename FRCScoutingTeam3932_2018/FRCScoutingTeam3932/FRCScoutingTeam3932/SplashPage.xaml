@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FRCScoutingTeam3932"
+             x:Class="FRCScoutingTeam3932.SplashPage">
+
+	<!-- <Label Text="Welcome to Xamarin.Forms!" 
+           VerticalOptions="Center" 
+           HorizontalOptions="Center" /> -->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Configure" Clicked="OnConfigureClicked" />
+        <ToolbarItem Text="Continue" Clicked="OnContinueClicked" />
+    </ContentPage.ToolbarItems>
+
+    <RelativeLayout>
+        <Image Source="FRCScouting2019_3932_SplashScreenV2_600x1024.png" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}" RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"/>
+    </RelativeLayout>
+
+</ContentPage>
